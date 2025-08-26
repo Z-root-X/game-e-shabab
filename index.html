@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game-E-SHABAB | Season 3</title>
+
+    <!-- Preconnect for faster font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts: Teko for headings, Poppins for body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons: Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    
+    <!-- Chart.js Library for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Your local Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ======================= -->
+    <!--  LANDING PAGE SECTION   -->
+    <!-- ======================= -->
+    <div id="landing-page">
+        <!-- The main "hero" banner with the event title -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">GAME-E-SHABAB</h1>
+                <h2 class="hero-subtitle">SEASON 3</h2>
+                <p class="hero-organizer">Organized by As-Sunnah Skill Development Institute</p>
+                <button class="cta-button" onclick="enterApp()">
+                    <i class="fas fa-arrow-right-to-bracket"></i> Enter Live Dashboard
+                </button>
+            </div>
+        </section>
+
+        <!-- A section to display live, dynamic auction information -->
+        <section class="live-info-section">
+            <div id="on-the-block-card" class="live-card">
+                <!-- Content for the currently active player will be generated here by JavaScript -->
+            </div>
+            <div class="live-card">
+                <h3><i class="fas fa-fire"></i> Top Buys</h3>
+                <div id="top-buys-container">
+                    <!-- Content for the most expensive players will be generated here by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ======================= -->
+    <!--   MAIN APP CONTAINER    -->
+    <!-- ======================= -->
+    <!-- This entire section is hidden until the user clicks the "Enter" button -->
+    <div id="app-container" class="hidden">
+        <nav class="navbar">
+          <div class="nav-brand">
+            GAME-E-SHABAB
+            <span class="nav-brand-season">Season 3</span>
+          </div>
+          <div class="nav-links">
+            <a href="#dashboard" class="nav-link active" onclick="showPage('dashboard')"><i class="fas fa-chart-pie"></i> Dashboard</a>
+            <a href="#fixtures" class="nav-link" onclick="showPage('fixtures')"><i class="fas fa-calendar-alt"></i> Fixtures</a>
+            <a href="#teams" class="nav-link" onclick="showPage('teams')"><i class="fas fa-users"></i> Teams</a>
+            <a href="#players" class="nav-link" onclick="showPage('players')"><i class="fas fa-running"></i> Players</a>
+          </div>
+        </nav>
+
+        <main id="content-area">
+            <!-- Dashboard Page Container -->
+            <div id="dashboard" class="page active">
+                <div class="dashboard-stats-grid">
+                    <!-- Stat cards (Sold, Unsold, etc.) will be generated here by JavaScript -->
+                </div>
+                <div class="dashboard-grid">
+                  <div class="chart-card">
+                    <h3>Team Budgets</h3>
+                    <canvas id="budget-chart"></canvas>
+                  </div>
+                  <div class="chart-card">
+                    <h3>Auction Progress</h3>
+                    <canvas id="status-chart"></canvas>
+                  </div>
+                </div>
+            </div>
+
+            <!-- Fixtures Page Container -->
+            <div id="fixtures" class="page">
+                <div class="page-header"><h2>Event Fixtures & Schedule</h2></div>
+                <div id="fixtures-container">
+                    <!-- Fixture tables will be generated here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Teams Page Container -->
+            <div id="teams" class="page">
+                <div class="page-header"><h2>Team Overviews</h2></div>
+                <div id="teams-container" class="teams-grid">
+                    <!-- Team cards will be generated here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Players Page Container -->
+            <div id="players" class="page">
+                <div class="page-header"><h2>All Players</h2></div>
+                <div class="table-container">
+                  <table class="player-table">
+                    <thead>
+                      <tr><th>Name</th><th>Category</th><th>Base Price</th><th>Status</th><th>Winning Price</th><th>Winning Team</th></tr>
+                    </thead>
+                    <tbody id="player-table-body">
+                        <!-- Player rows will be generated here by JavaScript -->
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="footer">
+          <p>Powered by As-Sunnah Skill Development Institute</p>
+        </footer>
+    </div>
+    
+    <!-- A loading spinner overlay that shows while data is being fetched initially -->
+    <div id="loader" class="loader-overlay"><div class="loader-spinner"></div></div>
+    
+    <!-- Your local JavaScript file that controls all the logic -->
+    <script src="script.js"></script>
+</body>
+</html>

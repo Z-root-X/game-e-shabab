@@ -1,0 +1,215 @@
+/* =================================================================
+                    GAME-E-SHABAB - SEASON 3
+               MASTER STYLESHEET (SOLID COLOR THEME)
+   ================================================================= */
+
+/* --- VARIABLE DEFINITIONS --- */
+:root {
+    /* Institute & Theme Colors - Updated with your requested color */
+    --green-dark: #165F3D; /* THE NEW PRIMARY BRAND COLOR */
+    --green-lime: #88C03D;
+    --orange-accent: #E6912E;
+    --red-theme: #d9534f;
+    
+    /* UI Colors */
+    --bg-color: #f0f2f5;
+    --card-bg-color: #FFFFFF;
+    --text-dark: #1c1e21;
+    --text-light: #606770;
+    --border-color: #e4e6eb;
+
+    /* Fonts */
+    --font-heading: 'Teko', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+/* --- GENERAL BODY & LAYOUT STYLES --- */
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- LOADER SPINNER --- */
+.loader-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(255, 255, 255, 0.9); z-index: 9999;
+    display: flex; justify-content: center; align-items: center;
+    transition: opacity 0.3s ease;
+}
+.loader-spinner {
+    border: 8px solid var(--border-color);
+    border-top: 8px solid var(--green-dark);
+    border-radius: 50%; width: 60px; height: 60px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* --- LANDING PAGE STYLES (UPDATED) --- */
+.hero {
+    height: 60vh;
+    min-height: 500px;
+    /* REPLACED IMAGE with a subtle gradient for depth */
+    background-color: var(--green-dark);
+    background-image: linear-gradient(135deg, var(--green-dark), #114e2d);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(4rem, 12vw, 7rem);
+    letter-spacing: 5px;
+    margin: 0;
+    line-height: 1;
+    /* Enhanced text shadow for better pop */
+    text-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+.hero-subtitle {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 6vw, 3rem);
+    letter-spacing: 3px;
+    margin: 0;
+    color: var(--orange-accent);
+}
+.hero-organizer { font-size: 1.1rem; margin-top: 10px; font-weight: 600; }
+.cta-button {
+    background-color: var(--orange-accent); color: white;
+    border: none; border-radius: 50px;
+    padding: 15px 35px; margin-top: 30px;
+    font-size: 1.2rem; font-weight: 600;
+    cursor: pointer; transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+.cta-button .fas { margin-right: 10px; }
+
+.live-info-section {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px; padding: 40px;
+    max-width: 1200px; margin: 0 auto;
+}
+.live-card {
+    background-color: var(--card-bg-color);
+    border-radius: 15px; padding: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.live-card h3 {
+    margin-top: 0; font-size: 1.5rem; color: var(--green-dark);
+    border-bottom: 2px solid var(--border-color); padding-bottom: 10px;
+    font-weight: 700;
+}
+.live-card h3 .fas { color: var(--orange-accent); }
+.on-block-name { font-size: 2rem; font-weight: 600; }
+.on-block-price { font-size: 1.5rem; color: var(--orange-accent); font-weight: 600; }
+.top-buy-card {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 0; border-bottom: 1px solid var(--border-color);
+}
+.top-buy-card:last-child { border-bottom: none; }
+.top-buy-name { font-weight: 600; font-size: 1.1rem; }
+.top-buy-price { background-color: var(--green-lime); color: white; padding: 5px 12px; border-radius: 50px; font-weight: 700; }
+
+/* --- MAIN APP CONTAINER STYLES --- */
+.hidden { display: none !important; }
+
+/* Navigation Bar */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    background-color: white; color: var(--text-dark);
+    padding: 10px 40px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky; top: 0; z-index: 1000;
+}
+.nav-brand {
+    font-family: var(--font-heading); font-size: 1.8em;
+    letter-spacing: 1px; color: var(--green-dark);
+}
+.nav-brand-season { font-size: 0.5em; color: var(--orange-accent); }
+.nav-links a {
+    color: var(--text-light); text-decoration: none; margin: 0 15px; padding: 8px 0;
+    font-weight: 600; border-bottom: 4px solid transparent; transition: all 0.3s ease;
+}
+.nav-links a.active, .nav-links a:hover {
+    color: var(--green-dark); border-bottom: 4px solid var(--orange-accent);
+}
+.nav-links .fas { margin-right: 8px; }
+
+/* Main Content & Page Styles */
+main { padding: 40px; max-width: 1400px; margin: 0 auto; }
+.page { display: none; }
+.page.active { display: block; animation: fadeIn 0.5s ease-out; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.page-header {
+    text-align: center; font-family: var(--font-heading);
+    color: var(--green-dark); margin-bottom: 40px;
+    font-size: 3.5rem;
+}
+
+/* Dashboard Page */
+.dashboard-stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px; }
+.stat-card {
+    background: var(--card-bg-color); padding: 25px;
+    border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+}
+.stat-card-value { font-size: 3rem; font-weight: 700; color: var(--green-dark); line-height: 1; }
+.stat-card-label { font-size: 1rem; color: var(--text-light); margin-top: 5px; }
+
+.dashboard-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
+.chart-card { background: var(--card-bg-color); padding: 25px; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.chart-card h3 { margin-top: 0; text-align: center; color: var(--text-light); }
+
+/* Fixtures Page */
+.fixture-tournament { margin-bottom: 50px; }
+.fixture-tournament-title { font-size: 2rem; font-weight: 700; color: var(--green-dark); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid var(--orange-accent); display: inline-block; }
+.fixture-table {
+    width: 100%; border-collapse: collapse;
+    background-color: var(--card-bg-color); border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); overflow: hidden;
+}
+.fixture-table th, .fixture-table td { padding: 16px 20px; text-align: center; border-bottom: 1px solid var(--border-color); }
+.fixture-table tbody tr:last-child td { border-bottom: none; }
+.fixture-table thead { background-color: #f8f9fa; color: var(--text-dark); font-weight: 600; font-size: 1.1em; }
+.fixture-table .team-col { font-weight: 600; text-align: right; }
+.fixture-table .vs-col { color: var(--text-light); font-size: 0.9em; }
+.fixture-table .winner-col { font-weight: 700; color: var(--green-dark); }
+.fixture-table .winner-col .fa-trophy { color: var(--orange-accent); }
+
+/* Teams Page */
+.teams-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
+.team-card {
+    background: var(--card-bg-color); border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); overflow: hidden;
+    transition: all 0.3s ease;
+}
+.team-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+.team-card-header { background: linear-gradient(45deg, var(--green-dark), var(--green-lime)); color: white; padding: 20px; font-weight: 700; font-size: 1.4em; }
+.team-card-body { padding: 20px; }
+.team-card-body p { margin: 12px 0; font-size: 1.1em; }
+.team-roster { list-style: none; padding: 0; }
+.team-roster li { display: flex; justify-content: space-between; padding: 10px 5px; border-bottom: 1px solid var(--border-color); }
+.team-roster li:last-child { border-bottom: none; }
+.team-roster span:last-child { font-weight: 700; color: var(--green-dark); }
+
+/* Players Page */
+.table-container { background: var(--card-bg-color); border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); overflow-x: auto; }
+.player-table { width: 100%; border-collapse: collapse; }
+.player-table th, .player-table td { padding: 16px 20px; text-align: left; white-space: nowrap; border-bottom: 1px solid var(--border-color); }
+.player-table tbody tr:last-child td { border-bottom: none; }
+.player-table thead th { background-color: #f8f9fa; font-size: 1.1em; color: var(--text-dark); font-weight: 600; }
+.player-table tbody tr:hover { background-color: #fdfdfd; }
+
+/* Footer */
+.footer { text-align: center; padding: 25px; margin-top: 40px; color: var(--text-light); background: #e9ecef; }
